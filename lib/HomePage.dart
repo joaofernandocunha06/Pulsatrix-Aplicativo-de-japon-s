@@ -101,6 +101,7 @@ class _HomePage extends State<HomePage>{
   falta ainda chamar a API do Gemini e criar arquivos .JSON*/
 
 //--------------------------------CALL GEMINI-----------------------------------
+  /*
   Future<void> callGemini() async {
     final random = Random();
     String tema = temasJapao[random.nextInt(temasJapao.length)];
@@ -135,6 +136,7 @@ class _HomePage extends State<HomePage>{
       }
     }
   }
+  */
 //-------------------------------LOAD FUNC--------------------------------------
   Future<void> readJson(String path) async {
     final file = File(path);
@@ -145,7 +147,7 @@ class _HomePage extends State<HomePage>{
         myWidgets = List<Map<String, dynamic>>.from(data['items']);
       });
     } else {
-      print("Arquivo não encontrado em $path");
+      print("Arquivo não encontrado");
     }
   }
 //-------------------------------SAVE FUNC--------------------------------------
@@ -192,7 +194,7 @@ class _HomePage extends State<HomePage>{
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                   padding: EdgeInsets.zero,
                 ),
-                onPressed: () => readJson(widget.path),
+                onPressed: () => readJson("assets/items.json"),
                 child: SizedBox(
                   height: 35,
                   width: 35,
@@ -213,7 +215,7 @@ class _HomePage extends State<HomePage>{
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                   padding: EdgeInsets.zero,
                 ),
-                onPressed: callGemini,//newRoutine,
+                onPressed: () {},//newRoutine,
                 child: SizedBox(
                     height: 90,
                     width: 90,
